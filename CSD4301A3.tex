@@ -1,0 +1,53 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{fullpage}
+\usepackage{tikz-uml}
+
+\sloppy
+\hyphenpenalty 10000000
+
+\title{CSD4301 Assignment 3}
+\author{Student 1 C0939393  // Student 2 C0939394  // Student 3 C0939395   }
+
+\begin{document}
+\maketitle
+
+\section{Class Diagram}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{umlpackage}{ProjectManagementModule}
+\begin{umlpackage}{Web Application}
+\umlclass[template=T]{A}{
+  n : uint \\ t : float
+}{}
+\umlclass[y=-3]{B}{
+  d : double
+}{
+  \umlvirt{setB(b : B) : void} \\ getB() : B}
+\end{umlpackage}
+\begin{umlpackage}[x=10,y=-6]{Database Mediator}
+\umlinterface{C}{
+  n : uint \\ s : string
+}{}
+\end{umlpackage}
+\umlclass[x=2,y=-10]{D}{
+  n : uint
+  }{}
+\end{umlpackage}
+
+\umlassoc[geometry=-|-, arg1=tata, mult1=*, pos1=0.3, arg2=toto, mult2=1, pos2=2.9, align2=left]{C}{B}
+\umlunicompo[geometry=-|, arg=titi, mult=*, pos=1.7, stereo=vector]{D}{C}
+\umlimport[geometry=|-, anchors=90 and 50, name=import]{sp2}{sp1}
+\umlaggreg[arg=tutu, mult=1, pos=0.8, angle1=30, angle2=60, loopsize=2cm]{D}{D}
+\umlinherit[geometry=-|]{D}{B}
+\umlnote[x=2.5,y=-6, width=3cm]{B}{this is a note}
+\umlnote[x=7.5,y=-2]{import-2}{this is a note}
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}
